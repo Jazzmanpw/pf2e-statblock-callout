@@ -6,16 +6,15 @@
 .pf2e-statblock-callout {
   font-family: "Century Gothic", sans-serif;
   --list-indent: 1em;
+  --p-spacing: 0.5rem;
 }
 
 .pf2e-statblock-callout ul {
   list-style: none;
-  margin-block-start: 0.5rem;
-  margin-block-end: 0.5rem;
 }
 
 .pf2e-statblock-callout hr {
-  margin: 0.5rem 0;
+  margin: 0;
 }
 
 .pf2e-statblock-callout ul > li {
@@ -72,8 +71,12 @@
   --pf2e-trait-bg: #478c42;
 }
 
+.pf2e-statblock-callout_content-list,
+.pf2e-statblock-callout_content-paragraph {
+  font-size: 0.85rem;
+}
+
 .pf2e-statblock-callout_content-list li {
   padding-left: 1em;
   text-indent: -1em;
-  font-size: 0.85rem;
 }

@@ -61,7 +61,16 @@ function createContent(statblock: HTMLDivElement, originalCallout: Element) {
   createTraits(statblock, originalContent);
 
   originalContent.childNodes.forEach((child) => {
-    if (child instanceof HTMLParagraphElement && child.querySelector("mark")) {
+    if (child instanceof HTMLParagraphElement) {
+      if (!child.querySelector("mark")) {
+        const statblockContentParagraph = child.cloneNode(
+          true,
+        ) as HTMLParagraphElement;
+        statblockContentParagraph.classList.add(
+          "pf2e-statblock-callout_content-paragraph",
+        );
+        statblock.appendChild(statblockContentParagraph);
+      }
       return;
     }
 
@@ -72,6 +81,6 @@ function createContent(statblock: HTMLDivElement, originalCallout: Element) {
       return;
     }
 
-    statblock.appendChild(child.cloneNode());
+    statblock.appendChild(child.cloneNode(true));
   });
 }
