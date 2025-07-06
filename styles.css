@@ -1,5 +1,6 @@
 * {
   --pf2e-head-bg: #522e2c;
+  --pf2e-trait-bg: #531004;
 }
 
 .pf2e-statblock-callout {
@@ -35,25 +36,41 @@
   background-color: var(--pf2e-head-bg);
 }
 
-.pf2e-statblock-callout_traits {
+.pf2e-statblock-callout_trait-list {
   display: flex;
   flex-wrap: wrap;
   font-size: 0.85rem;
 }
 
-.pf2e-statblock-callout_traits > li {
+.pf2e-statblock-callout_trait {
   font-weight: bold;
   text-transform: capitalize;
   color: white;
-  background-color: #531004;
+  background-color: var(--pf2e-trait-bg);
   border: 2px double #d5c489;
   padding: 0 5px;
   margin: 0.1em 0;
 }
 
-.pf2e-statblock-callout_traits > li a {
+.pf2e-statblock-callout_trait .internal-link {
   font-weight: inherit;
   color: inherit;
+}
+
+.pf2e-statblock-callout_trait__unique {
+  --pf2e-trait-bg: #800080;
+}
+
+.pf2e-statblock-callout_trait__rare {
+  --pf2e-trait-bg: #0c1466;
+}
+
+.pf2e-statblock-callout_trait__uncommon {
+  --pf2e-trait-bg: #c45500;
+}
+
+.pf2e-statblock-callout_trait__size {
+  --pf2e-trait-bg: #478c42;
 }
 
 .pf2e-statblock-callout_content-list li {
