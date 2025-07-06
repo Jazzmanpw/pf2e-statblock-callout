@@ -13,6 +13,9 @@
   "author": "Dmitry Shpak",
   "license": "MIT",
   "devDependencies": {
+    "@codemirror/language": "^6.11.2",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.38.0",
     "@eslint/css": "^0.9.0",
     "@eslint/js": "^9.30.1",
     "@eslint/markdown": "^6.6.0",

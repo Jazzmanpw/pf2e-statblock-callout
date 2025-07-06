@@ -43,7 +43,6 @@ function parseTrait(traitNode: Element) {
       : sizesSet.has(textContent)
         ? 1
         : 2;
-  console.log(textContent, { order });
   return { textContent, order };
 }
 

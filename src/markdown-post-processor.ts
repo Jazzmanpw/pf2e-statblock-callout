@@ -14,20 +14,41 @@ export function markdownPostProcessor(element: HTMLElement) {
 }
 
 function createHeader(statblock: HTMLDivElement, originalCallout: Element) {
-  const [name, level] = originalCallout
-    .querySelector(".callout-title-inner")
-    ?.textContent?.split("|") ?? ["Name"];
+  const { name, level, actionIcon } = parseHeader(
+    originalCallout.querySelector(".callout-title-inner"),
+  );
+
   const statblockHeader = statblock.createDiv({
     cls: "pf2e-statblock-callout_header",
   });
-  statblockHeader.createDiv({
+
+  const statblockName = statblockHeader.createDiv({
     cls: "pf2e-statblock-callout_name",
     text: name,
   });
+  if (actionIcon) {
+    statblockName.appendChild(actionIcon);
+  }
+
   statblockHeader.createDiv({
     cls: "pf2e-statblock-callout_level",
     text: level,
   });
+}
+
+function parseHeader(originalTitleContent: Element | null) {
+  if (!originalTitleContent?.textContent) {
+    return { name: "Name" };
+  }
+  const [rawName, level] = originalTitleContent.textContent.split("|");
+  const actionIcon = originalTitleContent.querySelector(".pf2-actions");
+  return {
+    name: actionIcon?.textContent
+      ? rawName.replace(actionIcon.textContent || "", "")
+      : rawName,
+    level,
+    actionIcon,
+  };
 }
 
 function createContent(statblock: HTMLDivElement, originalCallout: Element) {
