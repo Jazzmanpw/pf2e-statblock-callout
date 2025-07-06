@@ -1,0 +1,10 @@
+{
+  "id": "pf2e-statblock-callout",
+  "name": "PF2e Statblock Callout",
+  "version": "0.1.0",
+  "minAppVersion": "1.8.7",
+  "description": "This plugin renders PF2e statblocks. It works based on callouts, not codeblocks. This allows to preserve wikilinks and let Obsidian detect it",
+  "author": "Dmitry Shpak",
+  "authorUrl": "https://github.com/Jazzmanpw",
+  "isDesktopOnly": false
+}
