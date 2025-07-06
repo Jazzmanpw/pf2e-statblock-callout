@@ -25,7 +25,7 @@
   display: none;
 }
 
-.pf2e-statblock-callout-header {
+.pf2e-statblock-callout_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,13 +35,13 @@
   background-color: var(--pf2e-head-bg);
 }
 
-.pf2e-statblock-callout-traits {
+.pf2e-statblock-callout_traits {
   display: flex;
   flex-wrap: wrap;
   font-size: 0.85rem;
 }
 
-.pf2e-statblock-callout-traits .trait {
+.pf2e-statblock-callout_traits > li {
   font-weight: bold;
   text-transform: capitalize;
   color: white;
@@ -51,12 +51,12 @@
   margin: 0.1em 0;
 }
 
-.pf2e-statblock-callout-traits .trait a {
+.pf2e-statblock-callout_traits > li a {
   font-weight: inherit;
   color: inherit;
 }
 
-.pf2e-statblock-callout-content-list li {
+.pf2e-statblock-callout_content-list li {
   padding-left: 1em;
   text-indent: -1em;
   font-size: 0.85rem;

@@ -2,7 +2,7 @@
   "name": "pf2e-statblock-callout",
   "version": "0.1.0",
   "description": "This plugin renders PF2e statblocks. It works based on callouts, not codeblocks. This allows to preserve wikilinks and let Obsidian detect it",
-  "main": "dist/index.js",
+  "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
