@@ -1,7 +1,41 @@
-export function createTraits(
+export function createContent(
   statblock: HTMLDivElement,
-  originalContent: Element,
+  originalCallout: Element,
 ) {
+  const originalContent = originalCallout.querySelector(".callout-content");
+
+  if (!originalContent) {
+    return;
+  }
+
+  createTraits(statblock, originalContent);
+
+  originalContent.childNodes.forEach((child) => {
+    if (child instanceof HTMLParagraphElement) {
+      if (!child.querySelector("mark")) {
+        const statblockContentParagraph = child.cloneNode(
+          true,
+        ) as HTMLParagraphElement;
+        statblockContentParagraph.classList.add(
+          "pf2e-statblock-callout_content-paragraph",
+        );
+        statblock.appendChild(statblockContentParagraph);
+      }
+      return;
+    }
+
+    if (child instanceof HTMLUListElement) {
+      const statblockContentList = child.cloneNode(true) as HTMLUListElement;
+      statblockContentList.classList.add("pf2e-statblock-callout_content-list");
+      statblock.appendChild(statblockContentList);
+      return;
+    }
+
+    statblock.appendChild(child.cloneNode(true));
+  });
+}
+
+function createTraits(statblock: HTMLDivElement, originalContent: Element) {
   const statblockTraitList = statblock.createEl("ul", {
     cls: "pf2e-statblock-callout_trait-list",
   });
@@ -46,6 +80,17 @@ function parseTrait(traitNode: Element) {
   return { textContent, order };
 }
 
+const raritiesSet = new Set(["unique", "rare", "uncommon"]);
+const sizesSet = new Set([
+  "tiny",
+  "small",
+  "medium",
+  "large",
+  "huge",
+  "gargantuan",
+]);
+const settlementsSet = new Set(["city", "village", "town", "metropolis"]);
+
 function addTraitTypeClassName(traitElement: Element) {
   const trait = traitElement.textContent?.trim()?.toLowerCase() || "";
   if (raritiesSet.has(trait)) {
@@ -57,16 +102,3 @@ function addTraitTypeClassName(traitElement: Element) {
     return;
   }
 }
-
-const raritiesSet = new Set(["unique", "rare", "uncommon"]);
-
-const sizesSet = new Set([
-  "tiny",
-  "small",
-  "medium",
-  "large",
-  "huge",
-  "gargantuan",
-]);
-
-const settlementsSet = new Set(["city", "village", "town", "metropolis"]);
