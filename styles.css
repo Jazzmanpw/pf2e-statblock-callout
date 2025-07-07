@@ -40,7 +40,7 @@
 }
 
 .pf2e-statblock-callout_trait {
-  display: inline;
+  display: inline-block;
   font-weight: bold;
   text-transform: capitalize;
   color: white;
