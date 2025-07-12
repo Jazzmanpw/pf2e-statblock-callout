@@ -12,15 +12,18 @@ export function createContent(
 
   originalContent.childNodes.forEach((child) => {
     if (child instanceof HTMLParagraphElement) {
-      if (!child.querySelector("mark")) {
-        const statblockContentParagraph = child.cloneNode(
-          true,
-        ) as HTMLParagraphElement;
-        statblockContentParagraph.classList.add(
-          "pf2e-statblock-callout_content-paragraph",
-        );
-        statblock.appendChild(statblockContentParagraph);
-      }
+      const statblockContentParagraph = child.cloneNode(
+        true,
+      ) as HTMLParagraphElement;
+      statblockContentParagraph
+        .querySelectorAll("mark, mark + br")
+        .forEach((markOrBr) => {
+          markOrBr.remove();
+        });
+      statblockContentParagraph.classList.add(
+        "pf2e-statblock-callout_content-paragraph",
+      );
+      statblock.appendChild(statblockContentParagraph);
       return;
     }
 

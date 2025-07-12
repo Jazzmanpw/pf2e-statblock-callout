@@ -1,10 +1,12 @@
 * {
   --pf2e-head-bg: #522e2c;
+  --pf2e-head-fg: #cbc18f;
   --pf2e-trait-bg: #531004;
 }
 
 .pf2e-statblock-callout {
   font-family: "Century Gothic", sans-serif;
+  margin-top: 2rem;
   --list-indent: 1em;
   --p-spacing: 0.5rem;
 }
@@ -32,6 +34,7 @@
   padding: 4px 9px;
   font-size: 1.2rem;
   font-weight: bold;
+  color: var(--pf2e-head-fg);
   background-color: var(--pf2e-head-bg);
 }
 
